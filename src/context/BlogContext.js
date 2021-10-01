@@ -3,5 +3,11 @@ import React from "react";
 const BlogContext = React.createContext();
 
 export const BlogProvider = ({ children }) => {
-  return <BlogContext.Provider val>{children}</BlogContext.Provider>;
+  return (
+    <BlogContext.Provider value={"hello from context"}>
+      {children}
+    </BlogContext.Provider>
+  );
 };
+
+export default BlogContext;
