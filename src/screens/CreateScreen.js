@@ -7,19 +7,7 @@ const CreateScreen = ({ navigation }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const { data, dispatch } = useContext(BlogContext);
-
-  const createPost = () => {
-    dispatch({
-      type: "add_post",
-      payload: {
-        title: title,
-        content: content,
-        id: `${data.length + 1}`,
-      },
-    });
-    navigation.navigate("Index");
-  };
+  const { createPost } = useContext(BlogContext);
 
   return (
     <View>
@@ -34,7 +22,12 @@ const CreateScreen = ({ navigation }) => {
         value={content}
         onChange={(newContent) => setContent(newContent)}
       />
-      <Button title="Save" onPress={() => createPost()} />
+      <Button
+        title="Save"
+        onPress={() =>
+          createPost(title, content, () => navigation.navigate("Index"))
+        }
+      />
     </View>
   );
 };

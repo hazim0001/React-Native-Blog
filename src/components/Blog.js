@@ -5,16 +5,14 @@ import { Context as BlogContext } from "../context/BlogContext";
 import { withNavigation } from "react-navigation";
 
 const Blog = ({ title, id, navigation }) => {
-  const { dispatch } = useContext(BlogContext);
+  const { deletePost } = useContext(BlogContext);
 
   return (
     <View style={styles.row}>
       <TouchableOpacity onPress={() => navigation.navigate("Show", { id: id })}>
         <Text style={styles.blogText}>{title}</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => dispatch({ type: "delete_post", payload: { id: id } })}
-      >
+      <TouchableOpacity onPress={() => deletePost(id)}>
         <EvilIcons name="trash" size={32} color="black" />
       </TouchableOpacity>
     </View>
