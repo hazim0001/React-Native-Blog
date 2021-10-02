@@ -4,8 +4,7 @@ const blogReducer = (state, action) => {
   const { payload, type } = action;
   switch (type) {
     case "fetch_posts":
-      // here goes the method that talks to the api
-      return state;
+      return payload;
     case "add_post":
       return [
         ...state,
