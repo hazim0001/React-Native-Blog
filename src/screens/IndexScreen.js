@@ -13,7 +13,6 @@ import { Ionicons } from "@expo/vector-icons";
 
 const IndexScreen = ({ navigation }) => {
   const { data, dispatch } = useContext(BlogContext);
-  // console.log(navigation);
 
   const renderPosts = ({ item }) => {
     return <Blog title={item.title} id={item.id} />;

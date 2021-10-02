@@ -3,6 +3,9 @@ import createDataContext from "./createDataContext";
 const blogReducer = (state, action) => {
   const { payload, type } = action;
   switch (type) {
+    case "fetch_posts":
+      // here goes the method that talks to the api
+      return state;
     case "add_post":
       return [
         ...state,
@@ -20,9 +23,3 @@ const blogReducer = (state, action) => {
 };
 
 export const { Context, Provider } = createDataContext(blogReducer, []);
-
-// function arrayRemove(arr, value) {
-//   return arr.filter(function (ele) {
-//     return ele != value;
-//   });
-// }
